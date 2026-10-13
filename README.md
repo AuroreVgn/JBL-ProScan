@@ -1,4 +1,4 @@
-# JBL ProScan
+# 🐟 JBL ProScan
 
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
