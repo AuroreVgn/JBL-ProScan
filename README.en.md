@@ -30,20 +30,24 @@ If you find this integration useful and would like to support its development an
 
 ## 📑 Table of contents
 
-- [⚠️ Important](#-important)
-- [✨ Features](#-features)
-- [📸 Screenshots](#-screenshots)
-- [📦 Installation](#-installation)
-- [⚙️ Configuration](#-configuration)
-- [📊 Sensors](#-sensors)
-- [📊 Created entities](#-created-entities)
-- [🧩 Companion Lovelace Card](#-companion-lovelace-card)
-- [🙏 Credits](#-credits)
-- [📄 License](#-license)
+- [⚠️ Important](#toc-section-1)
+- [✨ Features](#toc-section-2)
+- [📸 Screenshots](#toc-section-3)
+- [📦 Installation](#toc-section-4)
+- [⚙️ Configuration](#toc-section-5)
+- [📊 Sensors](#toc-section-6)
+- [📊 Created entities](#toc-section-7)
+- [🧩 Companion Lovelace Card](#toc-section-8)
+- [🙏 Credits](#toc-section-9)
+- [📄 License](#toc-section-10)
+
+<a name="toc-section-1"></a>
 
 ## ⚠️ Important
 
 A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve your **pond** or **aquarium** water analyses directly from your **myJBL** account.
+
+<a name="toc-section-2"></a>
 
 ## ✨ Features
 
@@ -56,6 +60,8 @@ A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve
 - 🌍 Multi-language support
 - ⚡ Native Home Assistant Config Flow
 
+<a name="toc-section-3"></a>
+
 ## 📸 Screenshots
 
 ### Setup
@@ -63,6 +69,8 @@ A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve
 
 ### Entities
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/04da4e02-f774-4e2f-98c3-c452e3ff5f17" />
+
+<a name="toc-section-4"></a>
 
 ## 📦 Installation
 ### HACS (recommended)
@@ -95,6 +103,8 @@ HACS
 
 Restart Home Assistant.
 
+<a name="toc-section-5"></a>
+
 ## ⚙️ Configuration
 Go to
 
@@ -110,6 +120,8 @@ Enter
 - myJBL password
 
 Then simply choose the pond (or aquarium) to import.
+
+<a name="toc-section-6"></a>
 
 ## 📊 Sensors
 ### Water parameters
@@ -134,6 +146,8 @@ Then simply choose the pond (or aquarium) to import.
 - Nitrate High
 - Chlorine High
 - Analysis overdue
+
+<a name="toc-section-7"></a>
 
 ## 📊 Created entities
 ### Sensors
@@ -186,6 +200,8 @@ Thanks to the binary sensors you can easily create automations such as:
 ➡️ https://github.com/AuroreVgn/JBL_ProScan_card
 
 
+<a name="toc-section-8"></a>
+
 ## 🧩 Companion Lovelace Card
 A dedicated Lovelace card is available ➡️ https://github.com/AuroreVgn/JBL_ProScan_card
 
@@ -202,11 +218,15 @@ Features include:
 - 🧩 Visual editor
 
 
+<a name="toc-section-9"></a>
+
 ## 🙏 Credits
 Developed by **AuroreVgn**
 Special thanks to the Home Assistant community.
 This project is **not affiliated with JBL GmbH & Co. KG**.
 
+
+<a name="toc-section-10"></a>
 
 ## 📄 License
 Distributed under the MIT License.
