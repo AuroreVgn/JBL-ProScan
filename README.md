@@ -27,20 +27,24 @@ Si cette intégration vous est utile et que vous souhaitez soutenir son dévelop
 
 ## 📑 Sommaire
 
-- [⚠️ Important](#-important)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [📸 Captures d'écran](#-captures-décran)
-- [📦 Installation](#-installation)
-- [⚙️ Configuration](#-configuration)
-- [📊 Capteurs](#-capteurs)
-- [📊 Entités créées](#-entités-créées)
-- [🧩 Carte Lovelace associée](#-carte-lovelace-associée)
-- [🙏 Remerciements](#-remerciements)
-- [📄 Licence](#-licence)
+- [⚠️ Important](#toc-section-1)
+- [✨ Fonctionnalités](#toc-section-2)
+- [📸 Captures d'écran](#toc-section-3)
+- [📦 Installation](#toc-section-4)
+- [⚙️ Configuration](#toc-section-5)
+- [📊 Capteurs](#toc-section-6)
+- [📊 Entités créées](#toc-section-7)
+- [🧩 Carte Lovelace associée](#toc-section-8)
+- [🙏 Remerciements](#toc-section-9)
+- [📄 Licence](#toc-section-10)
+
+<a name="toc-section-1"></a>
 
 ## ⚠️ Important
 
 Intégration personnalisée Home Assistant pour **JBL ProScan**, permettant de récupérer les analyses d'eau de votre **bassin** ou **aquarium** directement depuis votre compte **myJBL**.
+
+<a name="toc-section-2"></a>
 
 ## ✨ Fonctionnalités
 
@@ -53,6 +57,8 @@ Intégration personnalisée Home Assistant pour **JBL ProScan**, permettant de r
 - 🌍 Prise en charge de plusieurs langues
 - ⚡ Configuration native via l'interface Home Assistant
 
+<a name="toc-section-3"></a>
+
 ## 📸 Captures d'écran
 
 ### Configuration
@@ -60,6 +66,8 @@ Intégration personnalisée Home Assistant pour **JBL ProScan**, permettant de r
 
 ### Entités
 <img width="250" alt="Entités JBL ProScan" src="https://github.com/user-attachments/assets/04da4e02-f774-4e2f-98c3-c452e3ff5f17" />
+
+<a name="toc-section-4"></a>
 
 ## 📦 Installation
 
@@ -96,6 +104,8 @@ HACS
 
 Redémarrez Home Assistant.
 
+<a name="toc-section-5"></a>
+
 ## ⚙️ Configuration
 
 Accédez à :
@@ -108,6 +118,8 @@ Paramètres
 ```
 
 Renseignez votre adresse e-mail et votre mot de passe **myJBL**, puis sélectionnez le bassin ou l'aquarium à importer.
+
+<a name="toc-section-6"></a>
 
 ## 📊 Capteurs
 
@@ -133,6 +145,8 @@ Renseignez votre adresse e-mail et votre mot de passe **myJBL**, puis sélection
 - Nitrates élevés
 - Chlore élevé
 - Analyse en retard
+
+<a name="toc-section-7"></a>
 
 ## 📊 Entités créées
 
@@ -186,6 +200,8 @@ Les capteurs binaires permettent notamment de créer un rappel lorsqu'aucune ana
 
 ➡️ https://github.com/AuroreVgn/JBL_ProScan_card
 
+<a name="toc-section-8"></a>
+
 ## 🧩 Carte Lovelace associée
 
 Une carte Lovelace dédiée est disponible : https://github.com/AuroreVgn/JBL_ProScan_card
@@ -202,6 +218,8 @@ Ses fonctionnalités comprennent :
 - 🖱 Infobulles interactives
 - 🧩 Éditeur visuel
 
+<a name="toc-section-9"></a>
+
 ## 🙏 Remerciements
 
 Développé par **AuroreVgn**.
@@ -209,6 +227,8 @@ Développé par **AuroreVgn**.
 Merci à la communauté Home Assistant.
 
 Ce projet **n'est pas affilié à JBL GmbH & Co. KG**.
+
+<a name="toc-section-10"></a>
 
 ## 📄 Licence
 
