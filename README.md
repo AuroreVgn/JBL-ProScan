@@ -25,6 +25,19 @@ Si cette intégration vous est utile et que vous souhaitez soutenir son dévelop
 
 [English](README.en.md)
 
+## 📑 Sommaire
+
+- [⚠️ Important](#-important)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [📸 Captures d'écran](#-captures-décran)
+- [📦 Installation](#-installation)
+- [⚙️ Configuration](#-configuration)
+- [📊 Capteurs](#-capteurs)
+- [📊 Entités créées](#-entités-créées)
+- [🧩 Carte Lovelace associée](#-carte-lovelace-associée)
+- [🙏 Remerciements](#-remerciements)
+- [📄 Licence](#-licence)
+
 ## ⚠️ Important
 
 Intégration personnalisée Home Assistant pour **JBL ProScan**, permettant de récupérer les analyses d'eau de votre **bassin** ou **aquarium** directement depuis votre compte **myJBL**.
