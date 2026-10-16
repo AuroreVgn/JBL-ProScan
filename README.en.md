@@ -28,6 +28,19 @@ If you find this integration useful and would like to support its development an
 
 [Français](README.md)
 
+## 📑 Table of contents
+
+- [⚠️ Important](#-important)
+- [✨ Features](#-features)
+- [📸 Screenshots](#-screenshots)
+- [📦 Installation](#-installation)
+- [⚙️ Configuration](#-configuration)
+- [📊 Sensors](#-sensors)
+- [📊 Created entities](#-created-entities)
+- [🧩 Companion Lovelace Card](#-companion-lovelace-card)
+- [🙏 Credits](#-credits)
+- [📄 License](#-license)
+
 ## ⚠️ Important
 
 A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve your **pond** or **aquarium** water analyses directly from your **myJBL** account.
