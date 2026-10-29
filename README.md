@@ -71,6 +71,12 @@ Intégration personnalisée Home Assistant pour **JBL ProScan**, permettant de r
 
 ## 📦 Installation
 
+> [!NOTE]
+> **Marketplace / HACS — Home Assistant 2026.11+ :** ouvrez **Paramètres → Marketplace**, intégré à Home Assistant sans installation séparée de HACS. Recherchez ce projet ou ajoutez `https://github.com/AuroreVgn/JBL-ProScan` comme **dépôt personnalisé** s'il n'est pas encore référencé. Avec Home Assistant **2026.10 ou antérieur**, continuez à utiliser HACS comme indiqué ci-dessous. Les liens `hacs_repository` existants restent compatibles. Après installation, configurez l'intégration dans Paramètres → Appareils et services. Le projet reste communautaire et non officiel.
+>
+> **EN:** Starting with Home Assistant **2026.11**, use the built-in **Settings → Marketplace**, with no separate HACS installation. Search for the project or add its GitHub URL as a **custom repository**. On **2026.10 or earlier**, continue using HACS. Existing `hacs_repository` links remain compatible. This is a community project, not an official Home Assistant integration.
+
+
 ### HACS (recommandé)
 
 #### Ajouter le dépôt
