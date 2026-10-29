@@ -73,6 +73,10 @@ A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve
 <a name="toc-section-4"></a>
 
 ## 📦 Installation
+
+> [!NOTE]
+> **Marketplace / HACS — Home Assistant 2026.11+:** Open **Settings → Marketplace**, built into Home Assistant without a separate HACS installation. Search for this project or add `https://github.com/AuroreVgn/JBL-ProScan` as a **custom repository** if it is not yet listed. On **Home Assistant 2026.10 and earlier**, continue using HACS as described below. Existing `hacs_repository` links remain compatible. After installing, configure the integration under Settings → Devices & services. This remains an unofficial community project.
+
 ### HACS (recommended)
 #### Add the repository
 
