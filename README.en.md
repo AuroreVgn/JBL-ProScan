@@ -1,8 +1,5 @@
 # 🐠 JBL ProScan
 
-> [!IMPORTANT]
-> **JBL ProScan Lovelace Card is now bundled in the integration source.** Once a new integration release includes it, use `/jbl_proscan/jbl-proscan-card.js` as a JavaScript module resource instead of installing the separate [historical card repository](https://github.com/AuroreVgn/JBL-ProScan_card). Existing `type: custom:jbl-proscan-card` configurations remain valid. Do not load both scripts simultaneously.
-
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2026.3%2B-41BDF5.svg?style=flat-square&logo=homeassistant)](https://www.home-assistant.io/)
@@ -40,7 +37,7 @@ If you find this integration useful and would like to support its development an
 - [⚙️ Configuration](#toc-section-5)
 - [📊 Sensors](#toc-section-6)
 - [📊 Created entities](#toc-section-7)
-- [🧩 Companion Lovelace Card](#toc-section-8)
+- [🧩 Bundled Lovelace Card](#toc-section-8)
 - [🙏 Credits](#toc-section-9)
 - [📄 License](#toc-section-10)
 
@@ -78,7 +75,7 @@ A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve
 ## 📦 Installation
 
 > [!NOTE]
-> **Marketplace / HACS — Home Assistant 2026.11+:** Open **Settings → Marketplace**, built into Home Assistant without a separate HACS installation. Search for this project or add `https://github.com/AuroreVgn/JBL-ProScan` as a **custom repository** if it is not yet listed. On **Home Assistant 2026.10 and earlier**, continue using HACS as described below. Existing `hacs_repository` links remain compatible. After installing, configure the integration under Settings → Devices & services. This remains an unofficial community project.
+> **Marketplace / HACS:** Search for **JBL ProScan** in the catalog first. If the integration is not yet listed, add the [main repository](https://github.com/AuroreVgn/JBL-ProScan) as a custom repository under the **Integration** category. This is an unofficial community project.
 
 ### HACS (recommended)
 #### Add the repository
@@ -204,26 +201,39 @@ Thanks to the binary sensors you can easily create automations such as:
 
 
 ### Dashboard
-➡️ https://github.com/AuroreVgn/JBL-ProScan_card
+The card is bundled with this integration: [documentation and screenshots](#toc-section-8).
 
 
 <a name="toc-section-8"></a>
 
-## 🧩 Companion Lovelace Card
-A dedicated Lovelace card is available ➡️ https://github.com/AuroreVgn/JBL-ProScan_card
+## 🧩 Bundled Lovelace Card
 
-Features include:
-- 📈 Interactive graphs
-- 🎨 Custom colors
-- 🎭 Custom icons
-- 🌍 Multi-language
-- 🔄 Manual refresh
-- 📅 Period selector
-- 📊 Previous analysis comparison
-- 📉 Recommended JBL ranges
-- 🖱 Interactive tooltips
-- 🧩 Visual editor
+**JBL ProScan Card** is now included in the integration source code. Installing the [historical standalone card repository](https://github.com/AuroreVgn/JBL-ProScan_card) separately is no longer necessary **once an integration release containing this feature is published**.
 
+### Previews
+
+| Light theme | Dark theme |
+| :---: | :---: |
+| <img src="https://raw.githubusercontent.com/AuroreVgn/JBL-ProScan_card/main/assets/light.png" alt="JBL ProScan Card — light" width="340"> | <img src="https://raw.githubusercontent.com/AuroreVgn/JBL-ProScan_card/main/assets/dark.png" alt="JBL ProScan Card — dark" width="340"> |
+
+### Installation and migration
+
+1. Install a **JBL ProScan** integration release that includes the card and restart Home Assistant.
+2. Add a manual card (or use the visual editor):
+
+   ```yaml
+   type: custom:jbl-proscan-card
+   entity: sensor.bassin_historique
+   ```
+
+   Replace `sensor.bassin_historique` with your JBL ProScan history sensor.
+
+3. The JavaScript resource is available at `/jbl_proscan/jbl-proscan-card.js`. If it is not registered automatically, add it under **Settings → Dashboards → Resources** as a **JavaScript module**.
+4. If you previously installed the standalone HACS card, verify that the bundled card works first. Then remove **only the old JavaScript resource** and uninstall the old plugin. Do not remove `/jbl_proscan/jbl-proscan-card.js`.
+
+**Do not load both resources simultaneously:** they register the same custom card type. Existing `type: custom:jbl-proscan-card` configurations remain compatible.
+
+The card retains its interactive history charts, water quality thresholds, light/dark themes, translations, customization options, and visual editor.
 
 <a name="toc-section-9"></a>
 
