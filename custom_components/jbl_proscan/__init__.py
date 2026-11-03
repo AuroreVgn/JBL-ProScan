@@ -16,6 +16,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import slugify
 
+from .card import async_setup_card
 from .api import JBLProScanApi
 from .const import (
     CONF_AQUARIUM_ID,
@@ -130,6 +131,7 @@ async def async_migrate_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry)
 
 async def async_setup_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry) -> bool:
     """Set up JBL ProScan from a config entry."""
+    await async_setup_card(hass)
     session = async_get_clientsession(hass)
     api = JBLProScanApi(
         session=session,
