@@ -10,7 +10,7 @@ from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.selector import (
     NumberSelector,
     NumberSelectorConfig,
@@ -59,8 +59,9 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
+            # A separate cookie jar prevents config flows from sharing logins.
             api = JBLProScanApi(
-                session=async_get_clientsession(self.hass),
+                session=async_create_clientsession(self.hass),
                 email=user_input[CONF_EMAIL],
                 password=user_input[CONF_PASSWORD],
             )
@@ -79,6 +80,9 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 self._aquariums = aquariums
                 self._api = api
                 return await self.async_step_aquarium()
+            finally:
+                if self._api is not api:
+                    await api.async_close()
 
         schema = vol.Schema(
             {
@@ -127,21 +131,26 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 except Exception:  # noqa: BLE001
                     errors["base"] = "unknown"
                 else:
-                    await self.async_set_unique_id(
-                        f"{self._credentials[CONF_EMAIL].lower()}_{aquarium_id}"
-                    )
-                    self._abort_if_unique_id_configured()
-                    entry_data = {
-                        **self._credentials,
-                        CONF_AQUARIUM_ID: aquarium_id,
-                        CONF_REMINDER_DAYS: user_input.get(
-                            CONF_REMINDER_DAYS, DEFAULT_REMINDER_DAYS
-                        ),
-                    }
-                    return self.async_create_entry(
-                        title=data.aquarium_name,
-                        data=entry_data,
-                    )
+                    try:
+                        await self.async_set_unique_id(
+                            f"{self._credentials[CONF_EMAIL].lower()}_{aquarium_id}"
+                        )
+                        self._abort_if_unique_id_configured()
+                        entry_data = {
+                            **self._credentials,
+                            CONF_AQUARIUM_ID: aquarium_id,
+                            CONF_REMINDER_DAYS: user_input.get(
+                                CONF_REMINDER_DAYS, DEFAULT_REMINDER_DAYS
+                            ),
+                        }
+                        return self.async_create_entry(
+                            title=data.aquarium_name,
+                            data=entry_data,
+                        )
+                    finally:
+                        # The installed config entry creates its own HTTP session.
+                        await self._api.async_close()
+                        self._api = None
 
         options = [
             {"value": aquarium_id, "label": name}
