@@ -85,6 +85,12 @@ function t(hass, key, vars = {}) {
   return value;
 }
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"]/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"
+  }[char]));
+}
+
 class JBLProScanCardEditor extends HTMLElement {
   constructor() { super(); this.attachShadow({ mode: "open" }); }
   set hass(value) {
@@ -135,7 +141,7 @@ class JBLProScanCardEditor extends HTMLElement {
       .sort((a, b) => (a.attributes.friendly_name || a.entity_id).localeCompare(b.attributes.friendly_name || b.entity_id));
     const options = candidates.map(state => {
       const label = state.attributes.friendly_name || state.entity_id;
-      return `<option value="${state.entity_id}" ${state.entity_id === this._config.entity ? "selected" : ""}>${label}</option>`;
+      return `<option value="${escapeHtml(state.entity_id)}" ${state.entity_id === this._config.entity ? "selected" : ""}>${escapeHtml(label)}</option>`;
     }).join("");
     const count = Math.min(1000, Math.max(2, Number(this._config.measurements ?? 20) || 20));
     this.shadowRoot.innerHTML = `
@@ -154,7 +160,7 @@ class JBLProScanCardEditor extends HTMLElement {
       <p class="help">${t(this._hass,"editor_help_entity")}</p>
       <div class="grid">
         <label>${t(this._hass,"editor_entity")}<select id="entity"><option value=""></option>${options}</select></label>
-        <label>${t(this._hass,"editor_title")}<input id="title" type="text" value="${this._config.title || ""}"></label>
+        <label>${t(this._hass,"editor_title")}<input id="title" type="text" value="${escapeHtml(this._config.title || "")}"></label>
         <label>${t(this._hass,"editor_measurements")}<input id="measurements" type="number" inputmode="numeric" min="2" max="1000" step="1" value="${count}"></label>
         <div class="two">
           <label>${t(this._hass,"editor_history_source")}<select id="history_source"><option value="auto" ${(this._config.history_source||"auto")==="auto"?"selected":""}>${t(this._hass,"source_auto")}</option><option value="jbl" ${this._config.history_source==="jbl"?"selected":""}>${t(this._hass,"source_jbl")}</option><option value="statistics" ${this._config.history_source==="statistics"?"selected":""}>${t(this._hass,"source_statistics")}</option></select></label>
@@ -284,7 +290,7 @@ class JBLProScanCard extends HTMLElement {
     };
   }
 
-  _escape(value) { return String(value ?? "").replace(/[&<>\"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+  _escape(value) { return escapeHtml(value); }
   _number(raw) { const m=String(raw??"").trim().replace(",",".").match(/^\s*([<>]=?)?\s*(-?\d+(?:\.\d+)?)/); return m?{value:Number(m[2]),comparator:m[1]||""}:{value:null,comparator:""}; }
   _locale() { return this._hass?.locale?.language || navigator.language || "en"; }
   _date(value, short=false) { const d=new Date(value); if(Number.isNaN(d.getTime())) return "—"; return new Intl.DateTimeFormat(this._locale(), short?{day:"2-digit",month:"short"}:{day:"2-digit",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(d); }
