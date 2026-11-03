@@ -148,6 +148,10 @@ class JBLProScanApi:
         self._aquarium_id = aquarium_id
         self._authenticated = False
 
+    async def async_close(self) -> None:
+        """Close the dedicated HTTP session owned by this API client."""
+        await self._session.close()
+
     async def async_login(self) -> None:
         """Authenticate against myJBL."""
         timeout = ClientTimeout(total=DEFAULT_TIMEOUT)
