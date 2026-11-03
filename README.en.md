@@ -37,7 +37,7 @@ If you find this integration useful and would like to support its development an
 - [⚙️ Configuration](#toc-section-5)
 - [📊 Sensors](#toc-section-6)
 - [📊 Created entities](#toc-section-7)
-- [🧩 Bundled Lovelace Card](#toc-section-8)
+- [🧩 Integrated Lovelace Card](#toc-section-8)
 - [🙏 Credits](#toc-section-9)
 - [📄 License](#toc-section-10)
 
@@ -206,7 +206,7 @@ The card is bundled with this integration: [documentation and screenshots](#toc-
 
 <a name="toc-section-8"></a>
 
-## 🧩 Bundled Lovelace Card
+## 🧩 Integrated Lovelace Card
 
 **JBL ProScan Card** is now included in the integration source code. Installing the [historical standalone card repository](https://github.com/AuroreVgn/JBL-ProScan_card) separately is no longer necessary **once an integration release containing this feature is published**.
 
