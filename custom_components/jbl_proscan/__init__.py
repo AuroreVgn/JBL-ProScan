@@ -12,7 +12,7 @@ from homeassistant.const import CONF_PASSWORD
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import slugify
 
@@ -132,7 +132,8 @@ async def async_migrate_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry)
 async def async_setup_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry) -> bool:
     """Set up JBL ProScan from a config entry."""
     await async_setup_card(hass)
-    session = async_get_clientsession(hass)
+    # myJBL authentication uses cookies: isolate every config entry's login.
+    session = async_create_clientsession(hass)
     api = JBLProScanApi(
         session=session,
         email=entry.data[CONF_EMAIL],
@@ -149,16 +150,24 @@ async def async_setup_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry) -
         api,
         timedelta(minutes=interval_minutes),
     )
-    await coordinator.async_config_entry_first_refresh()
-    entry.runtime_data = coordinator
-    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    try:
+        await coordinator.async_config_entry_first_refresh()
+        entry.runtime_data = coordinator
+        await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    except BaseException:
+        # Do not retain a logged-in cookie jar when setup fails or is cancelled.
+        await api.async_close()
+        raise
     entry.async_on_unload(entry.add_update_listener(_async_reload_entry))
     return True
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry) -> bool:
     """Unload a config entry."""
-    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    unloaded = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    if unloaded:
+        await entry.runtime_data.api.async_close()
+    return unloaded
 
 
 async def _async_reload_entry(hass: HomeAssistant, entry: JBLProScanConfigEntry) -> None:
