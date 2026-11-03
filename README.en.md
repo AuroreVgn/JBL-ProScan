@@ -1,5 +1,8 @@
 # 🐠 JBL ProScan
 
+> [!IMPORTANT]
+> **JBL ProScan Lovelace Card is now bundled in the integration source.** Once a new integration release includes it, use `/jbl_proscan/jbl-proscan-card.js` as a JavaScript module resource instead of installing the separate [historical card repository](https://github.com/AuroreVgn/JBL-ProScan_card). Existing `type: custom:jbl-proscan-card` configurations remain valid. Do not load both scripts simultaneously.
+
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2026.3%2B-41BDF5.svg?style=flat-square&logo=homeassistant)](https://www.home-assistant.io/)
@@ -81,7 +84,7 @@ A Home Assistant custom integration for **JBL ProScan** allowing you to retrieve
 #### Add the repository
 
 Automatically
-[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AuroreVgn&repository=JBL_ProScan&category=integration)
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=AuroreVgn&repository=JBL-ProScan&category=integration)
 
 Or manually
 
@@ -92,7 +95,7 @@ HACS
            └── Custom repositories
 
 Repository:
-https://github.com/AuroreVgn/JBL_ProScan
+https://github.com/AuroreVgn/JBL-ProScan
 
 Category:
 Integration
@@ -201,13 +204,13 @@ Thanks to the binary sensors you can easily create automations such as:
 
 
 ### Dashboard
-➡️ https://github.com/AuroreVgn/JBL_ProScan_card
+➡️ https://github.com/AuroreVgn/JBL-ProScan_card
 
 
 <a name="toc-section-8"></a>
 
 ## 🧩 Companion Lovelace Card
-A dedicated Lovelace card is available ➡️ https://github.com/AuroreVgn/JBL_ProScan_card
+A dedicated Lovelace card is available ➡️ https://github.com/AuroreVgn/JBL-ProScan_card
 
 Features include:
 - 📈 Interactive graphs
@@ -236,6 +239,6 @@ This project is **not affiliated with JBL GmbH & Co. KG**.
 Distributed under the MIT License.
 
 
-[releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/JBL_ProScan?style=flat-square
-[releases]: https://github.com/AuroreVgn/JBL_ProScan/releases
-[license-shield]: https://img.shields.io/github/license/AuroreVgn/JBL_ProScan?style=flat-square
+[releases-shield]: https://img.shields.io/github/v/release/AuroreVgn/JBL-ProScan?style=flat-square
+[releases]: https://github.com/AuroreVgn/JBL-ProScan/releases
+[license-shield]: https://img.shields.io/github/license/AuroreVgn/JBL-ProScan?style=flat-square
