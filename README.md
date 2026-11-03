@@ -34,7 +34,7 @@ Si cette intégration vous est utile et que vous souhaitez soutenir son dévelop
 - [⚙️ Configuration](#toc-section-5)
 - [📊 Capteurs](#toc-section-6)
 - [📊 Entités créées](#toc-section-7)
-- [🧩 Carte Lovelace intégrée](#toc-section-8)
+- [🧩 Carte Lovelace](#toc-section-8)
 - [🙏 Remerciements](#toc-section-9)
 - [📄 Licence](#toc-section-10)
 
@@ -206,7 +206,7 @@ La carte est incluse dans cette intégration : [documentation et captures](#toc-
 
 <a name="toc-section-8"></a>
 
-## 🧩 Carte Lovelace intégrée
+## 🧩 Carte Lovelace
 
 La carte **JBL ProScan Card** est désormais fournie avec le code de l'intégration : une installation séparée de [l'ancien dépôt de la carte](https://github.com/AuroreVgn/JBL-ProScan_card) n'est plus nécessaire **dès qu'une version de l'intégration contenant cette nouveauté est publiée**.
 
