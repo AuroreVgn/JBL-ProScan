@@ -184,7 +184,6 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             max=MAX_REMINDER_DAYS,
                             step=1,
                             mode=NumberSelectorMode.BOX,
-                            unit_of_measurement=None,
                         )
                     ),
                 }
