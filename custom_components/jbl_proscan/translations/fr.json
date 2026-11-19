@@ -25,7 +25,7 @@
       "invalid_auth": "Adresse e-mail ou mot de passe incorrect.",
       "invalid_aquarium": "Le bassin ou ses analyses sont introuvables.",
       "no_aquariums": "Aucun bassin ou aquarium avec des analyses n’a été trouvé dans ce compte.",
-      "unknown": "Une erreur inattendue s’est produite."
+      "unknown": "Une erreur inattendue s’est produite (type : {diagnostic})."
     },
     "abort": {
       "already_configured": "Ce bassin est déjà configuré.",
