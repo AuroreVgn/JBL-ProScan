@@ -48,7 +48,7 @@ class _AnalysesHTMLParser(HTMLParser):
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attrs_dict = dict(attrs)
-        if tag == "h2" and not self.rows:
+        if tag == "h2" and self.aquarium_name == "JBL ProScan" and not self.in_h2:
             self.in_h2 = True
             self.h2_parts = []
         elif tag == "table" and "responsive" in (attrs_dict.get("class") or ""):
@@ -119,10 +119,7 @@ def parse_analyses_html(html: str, aquarium_id: str) -> JBLProScanData:
             )
         )
 
-    if not measurements:
-        raise JBLProScanParseError("No JBL ProScan measurements found in the page")
-
-    latest = max(measurements, key=lambda item: item.measured_at)
+    latest = max(measurements, key=lambda item: item.measured_at) if measurements else None
     return JBLProScanData(
         aquarium_id=aquarium_id,
         aquarium_name=parser.aquarium_name,
