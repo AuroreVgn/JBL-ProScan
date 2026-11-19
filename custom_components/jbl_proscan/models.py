@@ -29,5 +29,5 @@ class JBLProScanData:
     aquarium_id: str
     aquarium_name: str
     measurement_count: int
-    latest: JBLMeasurement
+    latest: JBLMeasurement | None
     measurements: tuple[JBLMeasurement, ...]
