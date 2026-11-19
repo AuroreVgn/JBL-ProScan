@@ -137,11 +137,15 @@ class JBLProScanBinarySensor(CoordinatorEntity[JBLProScanCoordinator], BinarySen
                 self._entry.data.get(CONF_REMINDER_DAYS, DEFAULT_REMINDER_DAYS),
             )
         )
+        if self.coordinator.data.latest is None:
+            return None
         return self.entity_description.value_fn(self.coordinator.data, days)
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         latest = self.coordinator.data.latest
+        if latest is None:
+            return {"aquarium_id": self.coordinator.data.aquarium_id}
         attrs: dict[str, Any] = {
             "aquarium_id": self.coordinator.data.aquarium_id,
             "measurement_date": latest.measured_at.isoformat(),
