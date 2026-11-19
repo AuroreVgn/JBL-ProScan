@@ -25,7 +25,7 @@
       "invalid_auth": "Invalid email address or password.",
       "invalid_aquarium": "The pond, aquarium, or its analyses could not be found.",
       "no_aquariums": "No pond or aquarium with analyses was found in this account.",
-      "unknown": "An unexpected error occurred."
+      "unknown": "An unexpected error occurred (type: {diagnostic})."
     },
     "abort": {
       "already_configured": "This pond or aquarium is already configured.",
