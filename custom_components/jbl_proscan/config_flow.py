@@ -61,6 +61,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> FlowResult:
         """Authenticate and discover the user's aquariums and ponds."""
         errors: dict[str, str] = {}
+        diagnostic = ""
 
         if user_input is not None:
             # A separate cookie jar prevents config flows from sharing logins.
@@ -77,7 +78,8 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except JBLProScanParseError:
                 errors["base"] = "no_aquariums"
-            except Exception:  # noqa: BLE001
+            except Exception as err:  # noqa: BLE001
+                diagnostic = type(err).__name__
                 _LOGGER.exception("Unexpected error during JBL ProScan aquarium discovery")
                 errors["base"] = "unknown"
             else:
@@ -110,6 +112,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=schema,
             errors=errors,
+            description_placeholders={"diagnostic": diagnostic},
         )
 
     async def async_step_aquarium(
