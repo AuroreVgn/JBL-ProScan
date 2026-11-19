@@ -15,7 +15,8 @@
         "title": "Sélection du bassin",
         "description": "Sélectionnez le bassin ou l’aquarium dont vous souhaitez importer les analyses.",
         "data": {
-          "aquarium_id": "Bassin ou aquarium"
+          "aquarium_id": "Bassin ou aquarium",
+          "reminder_days": "Rappel après (jours)"
         }
       }
     },
