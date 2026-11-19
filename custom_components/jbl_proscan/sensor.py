@@ -70,7 +70,7 @@ MEASUREMENT_SENSORS: tuple[JBLProScanSensorDescription, ...] = (
         key="ph", translation_key="ph", icon="mdi:ph",
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=2,
-        value_fn=lambda d: _parse_numeric(d.latest.ph), raw_key="ph",
+        value_fn=lambda d: _parse_numeric(d.latest.ph) if d.latest else None, raw_key="ph",
     ),
     JBLProScanSensorDescription(
         key="kh", translation_key="kh", icon="mdi:water-outline",
@@ -121,7 +121,7 @@ SENSORS: tuple[JBLProScanSensorDescription, ...] = (
     JBLProScanSensorDescription(
         key="last_analysis", translation_key="last_analysis",
         icon="mdi:calendar-clock", device_class=SensorDeviceClass.TIMESTAMP,
-        value_fn=lambda d: d.latest.measured_at,
+        value_fn=lambda d: d.latest.measured_at if d.latest else None,
     ),
     JBLProScanSensorDescription(
         key="history", translation_key="history",
@@ -231,6 +231,8 @@ class JBLProScanSensor(CoordinatorEntity[JBLProScanCoordinator], SensorEntity):
             return None
 
         latest = self.coordinator.data.latest
+        if latest is None:
+            return None
         raw_value = getattr(latest, description.raw_key) if description.raw_key else None
         comparator = _comparator(raw_value)
         attrs: dict[str, Any] = {
