@@ -12,10 +12,10 @@
         }
       },
       "aquarium": {
-        "title": "Sélection du bassin",
-        "description": "Sélectionnez le bassin ou l’aquarium dont vous souhaitez importer les analyses.",
+        "title": "Sélection des aquariums",
+        "description": "Sélectionnez un ou plusieurs bassins ou aquariums à ajouter. Chaque sélection créera une entrée Home Assistant indépendante.",
         "data": {
-          "aquarium_id": "Bassin ou aquarium",
+          "aquarium_id": "Bassins ou aquariums",
           "reminder_days": "Rappel après (jours)"
         }
       }
@@ -23,8 +23,8 @@
     "error": {
       "cannot_connect": "Impossible de se connecter à JBL.",
       "invalid_auth": "Adresse e-mail ou mot de passe incorrect.",
-      "invalid_aquarium": "Le bassin ou ses analyses sont introuvables.",
-      "no_aquariums": "Aucun bassin ou aquarium avec des analyses n’a été trouvé dans ce compte.",
+      "invalid_aquarium": "La sélection des aquariums est invalide.",
+      "no_aquariums": "Aucun bassin ou aquarium n’a été trouvé dans ce compte.",
       "unknown": "Une erreur inattendue s’est produite (type : {diagnostic})."
     },
     "abort": {
