@@ -144,7 +144,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             ),
                         }
                         return self.async_create_entry(
-                            title=data.aquarium_name,
+                            title=self._aquariums[aquarium_id].rsplit(" — ", 1)[0],
                             data=entry_data,
                         )
                     finally:
@@ -175,7 +175,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             max=MAX_REMINDER_DAYS,
                             step=1,
                             mode=NumberSelectorMode.BOX,
-                            unit_of_measurement="days",
+                            unit_of_measurement=None,
                         )
                     ),
                 }
