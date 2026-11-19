@@ -12,10 +12,10 @@
         }
       },
       "aquarium": {
-        "title": "Select pond or aquarium",
-        "description": "Select the pond or aquarium whose analyses should be imported.",
+        "title": "Select aquariums",
+        "description": "Select one or more ponds or aquariums to add. Each selection creates a separate Home Assistant configuration entry.",
         "data": {
-          "aquarium_id": "Pond or aquarium",
+          "aquarium_id": "Ponds or aquariums",
           "reminder_days": "Reminder after (days)"
         }
       }
@@ -23,8 +23,8 @@
     "error": {
       "cannot_connect": "Unable to connect to JBL.",
       "invalid_auth": "Invalid email address or password.",
-      "invalid_aquarium": "The pond, aquarium, or its analyses could not be found.",
-      "no_aquariums": "No pond or aquarium with analyses was found in this account.",
+      "invalid_aquarium": "The aquarium selection is invalid.",
+      "no_aquariums": "No pond or aquarium was found in this account.",
       "unknown": "An unexpected error occurred (type: {diagnostic})."
     },
     "abort": {
