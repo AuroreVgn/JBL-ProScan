@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 import voluptuous as vol
@@ -41,6 +42,9 @@ from .exceptions import (
 )
 
 
+_LOGGER = logging.getLogger(__name__)
+
+
 class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a JBL ProScan config flow."""
 
@@ -74,6 +78,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except JBLProScanParseError:
                 errors["base"] = "no_aquariums"
             except Exception:  # noqa: BLE001
+                _LOGGER.exception("Unexpected error during JBL ProScan aquarium discovery")
                 errors["base"] = "unknown"
             else:
                 self._credentials = dict(user_input)
@@ -129,6 +134,7 @@ class JBLProScanConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 except JBLProScanParseError:
                     errors["base"] = "invalid_aquarium"
                 except Exception:  # noqa: BLE001
+                    _LOGGER.exception("Unexpected error while loading selected JBL aquarium")
                     errors["base"] = "unknown"
                 else:
                     try:
