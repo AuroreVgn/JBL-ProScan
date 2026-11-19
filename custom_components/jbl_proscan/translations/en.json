@@ -15,7 +15,8 @@
         "title": "Select pond or aquarium",
         "description": "Select the pond or aquarium whose analyses should be imported.",
         "data": {
-          "aquarium_id": "Pond or aquarium"
+          "aquarium_id": "Pond or aquarium",
+          "reminder_days": "Reminder after (days)"
         }
       }
     },
